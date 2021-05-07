@@ -43,7 +43,7 @@ if constexpr (i < sizeof(s)) {\
 #ifdef DEBUG
 #define STRDEF STRDEF_RAW
 #else
-#define STRDEF STRDEF_RAW
+#define STRDEF STRDEF_ENCRYPT_KEY2
 #endif
 
 #define MovStr(dst, s) [](char* b) {\
