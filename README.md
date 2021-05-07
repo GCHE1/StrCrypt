@@ -5,3 +5,12 @@ Compile-time string crypter library for C++
 - If the program is targeted by string detection scans you had to change the strings everytime you get detected.
 
 Include movstr.h
+```
+#include "movstr.h"
+
+void main() {
+  char buf[256];
+  MovStr(buf, "TestString\n");
+  printf(buf);
+}
+```
