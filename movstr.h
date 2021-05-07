@@ -9,6 +9,7 @@
 #define STR_CHAR(s, i) (i < sizeof(s) ? s[i] : 0)
 #define STR_DWORD(s, i) ((STR_CHAR(s, i + 0) << 0) + (STR_CHAR(s, i + 1) << 8) + (STR_CHAR(s, i + 2) << 16) + (STR_CHAR(s, i + 3) << 24))
 
+//Remove string from .rdata section with 2 encryption keys
 #define STRDEF_ENCRYPT_KEY2(s, i) \
 if constexpr (i < sizeof(s)) {\
 	const PDWORD p = (PDWORD)&b[i];\
@@ -21,6 +22,7 @@ if constexpr (i < sizeof(s)) {\
 	_ReadWriteBarrier();\
 }
 
+//Remove string from .rdata section with a encryption key
 #define STRDEF_ENCRYPT_KEY1(s, i) \
 if constexpr (i < sizeof(s)) {\
 	const PDWORD p = (PDWORD)&b[i];\
@@ -32,6 +34,7 @@ if constexpr (i < sizeof(s)) {\
 	_ReadWriteBarrier();\
 }
 
+//Remove string from .rdata section without encryption
 #define STRDEF_RAW(s, i) \
 if constexpr (i < sizeof(s)) {\
 	const PDWORD p = (PDWORD)&b[i];\
@@ -40,6 +43,7 @@ if constexpr (i < sizeof(s)) {\
 	_ReadWriteBarrier();\
 }
 
+//edit below to change encryption method
 #ifdef DEBUG
 #define STRDEF STRDEF_RAW
 #else
