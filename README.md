@@ -10,7 +10,7 @@ Include movstr.h
 
 void main() {
   char buf[256];
-  MovStr(buf, "TestString\n");
+  MovStr(buf, "TestString\n");  //"TestString" does not remain in .rdata section anymore.
   printf(buf);
 }
 ```
